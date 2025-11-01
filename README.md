@@ -94,7 +94,17 @@ public class JogoDaVelhaBackEnd : MonoBehaviour
     [SerializeField] GameObject botaoResetarVitoria;
     [SerializeField] Sprite imagemX;
     [SerializeField] Sprite imagemO;
-
+  ```
+<br> Esses campos aparecem no Inspector da Unity porque têm [SerializeField]. </br>
+<br> Eles conectam o script com a interface do jogo sem precisar ser public. </br>
+- textoVezJogador: onde você mostra mensagens tipo "Jogador X venceu!"
+- painel: objeto que contém o grid (os botões do tabuleiro).
+- botaoResetar: botão de reset normal (empate).
+- botaoResetarVitoria: botão de reset quando tem vencedor (pode ser outro layout).
+- imagemX e imagemO: sprites usados para desenhar X e O na célula clicada.
+  
+### Método Selecao(GameObject botaoClicado)
+```csharp
     public void Selecao(GameObject botaoClicado)
 
     {
@@ -133,6 +143,22 @@ public class JogoDaVelhaBackEnd : MonoBehaviour
             Resetar();
         } 
     }
+```
+O que acontece aqui:
+
+- Esse método é chamado quando o jogador clica num botão da grade.
+- Se estadoJogo já é true, significa que o jogo acabou → ele sai e ignora clique.
+- Ele checa se o botão já tem imagem X ou O. Se já tiver, não deixa sobrescrever.
+- Ele lê o nome do botão (ex: "1,2") e separa com Regex.Split pra descobrir qual posição do tabuleiro foi clicada.
+- Se for a vez do jogador1 → marca 1 na matriz e coloca sprite do X.
+- Se for o outro → marca 2 e coloca sprite do O.
+- Faz um print() do tabuleiro no console (debug).
+- Chama VerificarVencedor() pra ver se alguém ganhou.
+- Se alguém ganhou (resultado != 0) ou se já deu 9 turnos (turnos == 9), o jogo trava (estadoJogo = true) e chama Resetar() pra mostrar as opções de reiniciar.
+- Repara no detalhe: você alterna jogador1 = !jogador1; na mão, trocando a vez.
+  
+### Método VerificarVencedor()
+```csharp
 
     int VerificarVencedor()
     {
