@@ -1,4 +1,4 @@
-# Unity-Para-Iniciantes-Jogo-da-Velha-Jenpex-
+# Unity-Para-Iniciantes-Jogo-da-Velha-Jenpex
 
 Um jogo da velha (tic-tac-toe) feito em Unity como projeto de estudo.  
 O objetivo é praticar lógica de jogo e interface simples em C#.
