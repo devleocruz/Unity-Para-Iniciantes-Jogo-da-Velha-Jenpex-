@@ -234,3 +234,4 @@ Isso limpa tudo para começar outra partida:
 Esse método controla a UI pós-jogo:
 - Se `resultado == 0` → ninguém ganhou, foi empate. Mostra o botão de “reset normal”.
 - Se `resultado == 1` ou `2` → alguém ganhou. Mostra o botão de “reset vitória” e escreve na tela quem venceu.
+- é us guri
